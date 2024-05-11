@@ -32,3 +32,31 @@ cd frontend
 npm install
 nx serve
 ```
+
+
+## Run in Docker
+
+The frontend is made with the ReactJS version 18.0.4 and Node v20.2.0.
+
+### Start PostgreSQL Database in Docker and Make Sure Docker installed on the machine
+```
+docker run -d -e POSTGRES_HOST_AUTH_METHOD=trust -e POSTGRES_USER=backend -e POSTGRES_PASSWORD=backend -e POSTGRES_DB=backenddb -p 5434:5432 postgres:14
+```
+make sure The database container is running
+```
+docker ps -a 
+```
+To run the backend
+```
+cd backend
+docker compose -f docker-compose.yaml up -d
+```
+
+
+To run the frontend, run the following command:
+
+```
+cd frontend
+npm install
+nx serve
+```
